@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get to Know the Chef - PHAKAtwayo Culinary Solutions</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+            color: white;
+            padding: 1.5rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #FFD700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-decoration: none;
+        }
+
+        .nav-dropdown {
+            position: relative;
+        }
+
+        .dropdown-toggle {
+            background: #FFD700;
+            color: #000000;
+            border: none;
+            padding: 0.8rem 1rem;
+            font-size: 1.1rem;
+            cursor: pointer;
+            border-radius: 5px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 0.3rem;
+            width: 50px;
+            height: 50px;
+            transition: background 0.3s;
+        }
+
+        .dropdown-toggle:hover {
+            background: #FFC700;
+        }
+
+        .hamburger-line {
+            width: 25px;
+            height: 3px;
+            background: #000000;
+            border-radius: 2px;
+            transition: all 0.3s;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            margin-top: 0.5rem;
+            background: white;
+            border-radius: 5px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            list-style: none;
+            min-width: 180px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s;
+        }
+
+        .nav-dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-menu li {
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .dropdown-menu li:last-child {
+            border-bottom: none;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 1rem 1.5rem;
+            color: #2d2d2d;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .dropdown-menu a:hover {
+            background: #FFD700;
+            color: #000000;
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+            color: white;
+            padding: 8rem 2rem 4rem 2rem;
+            text-align: center;
+            margin-top: 80px;
+        }
+
+        .hero-section h1 {
+            font-size: 3rem;
+            color: #FFD700;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .chef-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+        }
+
+        .chef-intro {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-bottom: 5rem;
+        }
+
+        .chef-photo {
+            width: 100%;
+            height: 500px;
+            background: linear-gradient(135deg, #FFD700 0%, #FFC700 100%);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+
+        .chef-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .chef-photo-placeholder {
+            color: #000000;
+            font-size: 1.2rem;
+            text-align: center;
+            padding: 2rem;
+            font-style: italic;
+        }
+
+        .chef-intro-text h2 {
+            font-size: 2.5rem;
+            color: #000000;
+            margin-bottom: 2rem;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .chef-intro-text h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100px;
+            height: 4px;
+            background: #FFD700;
+        }
+
+        .chef-intro-text p {
+            font-size: 1.2rem;
+            color: #555;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .section-divider {
+            background: #f9f9f9;
+            padding: 5rem 2rem;
+        }
+
+        .section-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-content h2 {
+            font-size: 2.5rem;
+            color: #000000;
+            margin-bottom: 2rem;
+            text-align: center;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .section-content h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: #FFD700;
+        }
+
+        .section-content p {
+            font-size: 1.2rem;
+            color: #555;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+            text-align: center;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .highlights {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .highlight-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .highlight-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .highlight-card h3 {
+            color: #FFD700;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .highlight-card p {
+            color: #666;
+            font-size: 1rem;
+        }
+
+        footer {
+            background: #1a1a1a;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero-section h1 {
+                font-size: 2rem;
+            }
+
+            .chef-intro {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .chef-photo {
+                height: 350px;
+            }
+
+            .chef-intro-text h2,
+            .section-content h2 {
+                font-size: 1.8rem;
+            }
+
+            .chef-intro-text p,
+            .section-content p {
+                font-size: 1rem;
+            }
+
+            .logo {
+                font-size: 1.2rem;
+            }
+
+            .dropdown-toggle {
+                width: 45px;
+                height: 45px;
+                padding: 0.6rem;
+            }
+
+            .hamburger-line {
+                width: 22px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="logo">PHAKAtwayo</a>
+            <div class="nav-dropdown">
+                <button class="dropdown-toggle">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a href="index.html#home">Home</a></li>
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="index.html#menu">Menu</a></li>
+                    <li><a href="gettoknowthechef.html">Get to Know the Chef</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero-section">
+        <h1>Get to Know the Chef</h1>
+    </section>
+
+    <div class="chef-container">
+        <div class="chef-intro">
+            <div class="chef-photo">
+                <!-- Replace with actual chef photo -->
+                <img src="chef-photo.jpg" alt="Chef Photo" style="display: none;">
+                <div class="chef-photo-placeholder">Insert Chef Photo Here<br>(chef-photo.jpg)</div>
+            </div>
+            <div class="chef-intro-text">
+                <h2>Who is behind PHAKATWAYO Culinary Solutions</h2>
+                <p>Meet Chef Mabaya, also known as Chef Cook, the visionary behind PHAKAtwayo Culinary Solutions. With a deep passion for African cuisine and years of culinary expertise, Chef Mabaya has dedicated his career to celebrating the rich flavors and traditions of African cooking.</p>
+                <p>From humble beginnings cooking with my mother in her kitchen at the age of 10 to falling in love again with cooking in high school, to persuing my passion for cooking at the International Hotel School, training at 5 different hotels and finally packing my bags and traveling to The United States of America to train and work under the best Chefs. Chef Mabaya also known as Chef Cook is an upcoming, ambitious, goal driven, highly motivated, extremely passionate young chef who aims to take of the culinary arts and cheffing industry by storm.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-divider">
+        <div class="section-content">
+            <h2>What He Aims</h2>
+            <p>I aim to keep my customers happy at all times through meeting and exceeding their culinary expectations through anticipatory service and hands on involvement with clients to ensure that their culinary needs are met. I also aim to apply all knowledge I’ve acquired throughout the years especially during my year abroad.</p>
+            
+            <div class="highlights">
+                <div class="highlight-card">
+                    <h3>🌍 Cultural Heritage</h3>
+                    <p>Preserving and celebrating authentic African culinary traditions</p>
+                </div>
+                <div class="highlight-card">
+                    <h3>🍽️ Quality Excellence</h3>
+                    <p>Using only the finest ingredients and house-made sauces</p>
+                </div>
+                <div class="highlight-card">
+                    <h3>👨‍🍳 Innovation</h3>
+                    <p>Blending traditional methods with contemporary techniques</p>
+                </div>
+                <div class="highlight-card">
+                    <h3>🤝 Community</h3>
+                    <p>Creating connections through food and hospitality</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 PHAKAtwayo Culinary Solutions. All rights reserved.</p>
+        <p>📞 083 822 4310 | 📧 phakatwayoc@gmail.com</p>
+    </footer>
+
+    <script>
+        // Check if chef photo exists and show it
+        const img = document.querySelector('.chef-photo img');
+        const placeholder = document.querySelector('.chef-photo-placeholder');
+        
+        img.onerror = function() {
+            img.style.display = 'none';
+            placeholder.style.display = 'block';
+        };
+        
+        img.onload = function() {
+            img.style.display = 'block';
+            placeholder.style.display = 'none';
+        };
+    </script>
+</body>
+</html>

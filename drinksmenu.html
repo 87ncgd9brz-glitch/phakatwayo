@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Phaka Café - Drinks Menu</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #1a1a1a 0%, #000000 100%);
+            color: #333;
+            padding: 0;
+            margin: 0;
+        }
+
+        .menu-container {
+            max-width: 210mm;
+            min-height: 297mm;
+            margin: 0 auto;
+            background: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .menu-header {
+            background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+            color: white;
+            padding: 2rem 2rem 3rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .menu-header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 215, 0, 0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .logo-container {
+            position: relative;
+            z-index: 1;
+            margin-bottom: 1.5rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .logo-container img {
+            width: 150px;
+            height: 150px;
+            object-fit: contain;
+        }
+
+        .menu-header h1 {
+            font-size: 3.5rem;
+            color: #FFD700;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            position: relative;
+            z-index: 1;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .menu-header p {
+            font-size: 1.5rem;
+            color: #FFD700;
+            font-style: italic;
+            position: relative;
+            z-index: 1;
+        }
+
+        .menu-content {
+            padding: 3rem 4rem;
+        }
+
+        .menu-section {
+            break-inside: avoid;
+            margin-bottom: 2.5rem;
+        }
+
+        .menu-section h2 {
+            font-size: 2rem;
+            color: #000000;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid #FFD700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .menu-item {
+            padding: 0.5rem 0;
+            font-size: 1.1rem;
+            color: #444;
+            line-height: 1.6;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .menu-item::before {
+            content: '●';
+            position: absolute;
+            left: 0;
+            color: #FFD700;
+            font-size: 0.8rem;
+        }
+
+        .sub-items {
+            margin-left: 2rem;
+            margin-top: 0.5rem;
+        }
+
+        .sub-item {
+            padding: 0.3rem 0;
+            font-size: 1rem;
+            color: #666;
+            line-height: 1.5;
+            position: relative;
+            padding-left: 1.2rem;
+        }
+
+        .sub-item::before {
+            content: '◦';
+            position: absolute;
+            left: 0;
+            color: #FFD700;
+            font-size: 1rem;
+        }
+
+        .drinks-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .note {
+            margin-top: 2rem;
+            padding: 1rem;
+            background: #f9f9f9;
+            border-left: 4px solid #FFD700;
+            font-style: italic;
+            color: #666;
+            font-size: 0.95rem;
+            break-inside: avoid;
+        }
+
+        .menu-footer {
+            text-align: center;
+            padding: 2rem;
+            background: #f9f9f9;
+            border-top: 3px solid #FFD700;
+        }
+
+        .menu-footer p {
+            color: #666;
+            font-size: 1rem;
+            margin: 0.3rem 0;
+        }
+
+        .menu-footer .brand {
+            font-size: 1.3rem;
+            color: #000000;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+            
+            .menu-container {
+                box-shadow: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="menu-container">
+        <div class="menu-header">
+            <div class="logo-container">
+                <img src="logo.png" alt="PHAKAtwayo Logo">
+            </div>
+            <h1>The Phaka Café</h1>
+            <p>Drinks Menu</p>
+        </div>
+
+        <div class="menu-content">
+            <div class="drinks-grid">
+                <div>
+                    <div class="menu-section">
+                        <h2>Fresh Fruit Smoothies</h2>
+                        <div class="sub-items">
+                            <div class="sub-item">Strawberry</div>
+                            <div class="sub-item">Mango</div>
+                            <div class="sub-item">Banana</div>
+                            <div class="sub-item">Mixed Berry</div>
+                            <div class="sub-item">Pineapple</div>
+                            <div class="sub-item">Passion Fruit</div>
+                            <div class="sub-item">Avocado</div>
+                            <div class="sub-item">Tropical Mix</div>
+                        </div>
+                    </div>
+
+                    <div class="menu-section">
+                        <h2>Soft Drinks</h2>
+                        <div class="sub-items">
+                            <div class="sub-item">Coca-Cola</div>
+                            <div class="sub-item">Coca-Cola Zero</div>
+                            <div class="sub-item">Sprite</div>
+                            <div class="sub-item">Fanta Orange</div>
+                            <div class="sub-item">Fanta Grape</div>
+                            <div class="sub-item">Cream Soda</div>
+                            <div class="sub-item">Ginger Ale</div>
+                            <div class="sub-item">Tonic Water</div>
+                            <div class="sub-item">Soda Water</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="menu-section">
+                        <h2>Specialty Drinks</h2>
+                        <div class="menu-item">Passion Fruit + Lemonade</div>
+                        <div class="menu-item">Cola Tonic and Lemonade</div>
+                    </div>
+
+                    <div class="menu-section">
+                        <h2>Hot Beverages</h2>
+                        <div class="sub-items">
+                            <div class="sub-item">Espresso</div>
+                            <div class="sub-item">Americano</div>
+                            <div class="sub-item">Cappuccino</div>
+                            <div class="sub-item">Latte</div>
+                            <div class="sub-item">Hot Chocolate</div>
+                            <div class="sub-item">Tea (Rooibos, Black, Green)</div>
+                        </div>
+                    </div>
+
+                    <div class="menu-section">
+                        <h2>Fresh Juices</h2>
+                        <div class="sub-items">
+                            <div class="sub-item">Orange Juice</div>
+                            <div class="sub-item">Apple Juice</div>
+                            <div class="sub-item">Cranberry Juice</div>
+                            <div class="sub-item">Pineapple Juice</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="note">
+                <strong>Note:</strong> All smoothies are made with fresh fruit. Ask about our daily specials!
+            </div>
+        </div>
+
+        <div class="menu-footer">
+            <p class="brand">PHAKAtwayo Culinary Solutions</p>
+            <p>Experience Authentic African Flavors</p>
+            <p>📞 083 822 4310 | 📧 phakatwayoc@gmail.com</p>
+        </div>
+    </div>
+
+    <script>
+        // Optional: Auto-print functionality
+        // window.onload = function() { window.print(); }
+    </script>
+</body>
+</html>

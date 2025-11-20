@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Phaka Café - Menu</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #1a1a1a 0%, #000000 100%);
+            color: #333;
+            padding: 0;
+            margin: 0;
+        }
+
+        .menu-container {
+            max-width: 210mm;
+            min-height: 297mm;
+            margin: 0 auto;
+            background: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .menu-header {
+            background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+            color: white;
+            padding: 2rem 2rem 3rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .menu-header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 215, 0, 0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .logo-container {
+            position: relative;
+            z-index: 1;
+            margin-bottom: 1.5rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .logo-container img {
+            width: 150px;
+            height: 150px;
+            object-fit: contain;
+        }
+
+        .menu-header h1 {
+            font-size: 3.5rem;
+            color: #FFD700;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            position: relative;
+            z-index: 1;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .menu-header p {
+            font-size: 1.5rem;
+            color: #FFD700;
+            font-style: italic;
+            position: relative;
+            z-index: 1;
+        }
+
+        .menu-content {
+            padding: 2rem 3rem 3rem 3rem;
+            columns: 2;
+            column-gap: 3rem;
+        }
+
+        .menu-section {
+            break-inside: avoid;
+            margin-bottom: 2rem;
+        }
+
+        .menu-section h2 {
+            font-size: 1.8rem;
+            color: #000000;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid #FFD700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .menu-item {
+            padding: 0.4rem 0;
+            font-size: 1.05rem;
+            color: #444;
+            line-height: 1.6;
+            position: relative;
+            padding-left: 1.2rem;
+        }
+
+        .menu-item::before {
+            content: '●';
+            position: absolute;
+            left: 0;
+            color: #FFD700;
+            font-size: 0.8rem;
+        }
+
+        .note {
+            margin-top: 1.5rem;
+            padding: 1rem;
+            background: #f9f9f9;
+            border-left: 4px solid #FFD700;
+            font-style: italic;
+            color: #666;
+            font-size: 0.95rem;
+            break-inside: avoid;
+        }
+
+        .menu-footer {
+            text-align: center;
+            padding: 2rem;
+            background: #f9f9f9;
+            border-top: 3px solid #FFD700;
+        }
+
+        .menu-footer p {
+            color: #666;
+            font-size: 1rem;
+            margin: 0.3rem 0;
+        }
+
+        .menu-footer .brand {
+            font-size: 1.3rem;
+            color: #000000;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+            
+            .menu-container {
+                box-shadow: none;
+            }
+        }
+
+        .special-note {
+            text-align: center;
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 1rem;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div class="menu-container">
+        <div class="menu-header">
+            <div class="logo-container">
+                <img src="logo.png" alt="PHAKAtwayo Logo">
+            </div>
+            <h1>The Phaka Café</h1>
+            <p>Culinary Excellence in Every Bite</p>
+        </div>
+
+        <div class="menu-content">
+            <div class="menu-section">
+                <h2>Hot Dogs</h2>
+                <div class="menu-item">Boerewors Roll</div>
+                <div class="menu-item">Russian / Frankfurter Roll</div>
+                <div class="menu-item">Cheese Griller Roll</div>
+                <div class="menu-item">Chilli Russian Roll</div>
+            </div>
+
+            <div class="menu-section">
+                <h2>Burgers</h2>
+                <div class="menu-item">Smash Burger</div>
+                <div class="menu-item">Hamburger</div>
+                <div class="menu-item">Cheese Burger</div>
+                <div class="menu-item">Grilled Chicken Burger</div>
+                <div class="menu-item">Fried Chicken Tender Burger</div>
+                <div class="special-note">(Choice between Burger Buns / Waffles)</div>
+            </div>
+
+            <div class="menu-section">
+                <h2>Chicken Tenders</h2>
+                <div class="menu-item">Crunchy Chicken Tenders</div>
+                <div class="menu-item">Soy Sauce Dunked Crunchy Tenders</div>
+                <div class="menu-item">Sweet Chilli Dunked Tenders</div>
+                <div class="menu-item">Sweet and Sour Dunked Tenders</div>
+                <div class="menu-item">Flaming Hot Peri Peri Dunked Tenders</div>
+            </div>
+
+            <div class="menu-section">
+                <h2>Wings</h2>
+                <div class="menu-item">Crunchy Wings</div>
+                <div class="menu-item">Soy Dunked Wings</div>
+                <div class="menu-item">Sweet Chilli Dunked Wings</div>
+                <div class="menu-item">Flaming Hot Peri Peri Dunked Wings</div>
+            </div>
+
+            <div class="menu-section">
+                <h2>Wraps</h2>
+                <div class="menu-item">Crunchy Chicken Wrap</div>
+                <div class="menu-item">Grilled Chicken Wrap</div>
+                <div class="menu-item">Soy Dunked Tenders Wrap</div>
+                <div class="menu-item">Sweet Chilli Dunked Tenders Wrap</div>
+                <div class="menu-item">Peri Peri Dunked Tenders Wrap</div>
+            </div>
+
+            <div class="menu-section">
+                <h2>Sides</h2>
+                <div class="menu-item">French Fries (Plain / Loaded at additional cost)</div>
+                <div class="menu-item">Potato Wedges</div>
+                <div class="menu-item">Potato Hashbrowns</div>
+                <div class="menu-item">Mac n Cheese</div>
+                <div class="menu-item">Green Salad</div>
+                <div class="menu-item">Coleslaw</div>
+            </div>
+
+            <div class="note">
+                <strong>NB:</strong> All sauces are house made
+            </div>
+        </div>
+
+        <div class="menu-footer">
+            <p class="brand">PHAKAtwayo Culinary Solutions</p>
+            <p>Experience Authentic African Flavors</p>
+            <p>📞 083 822 4310 | 📧 phakatwayoc@gmail.com</p>
+        </div>
+    </div>
+
+    <script>
+        // Optional: Auto-print functionality
+        // window.onload = function() { window.print(); }
+    </script>
+</body>
+</html>
